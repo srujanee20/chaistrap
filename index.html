@@ -123,6 +123,49 @@
     </div>
   </section>
 
+  <!-- ════════════════════════════════════════════ INSTALL ═══ -->
+  <section id="install" class="chai-p-10" style="position:relative;z-index:1;">
+    <div style="max-width:900px;margin:0 auto;">
+
+      <h2 class="chai-text-3xl chai-font-bold chai-mb-2 chai-text-center">Get Started</h2>
+      <p class="chai-text-center chai-mb-10" style="color:#64748b;">Drop one of these into your HTML. That's all.</p>
+
+      <!-- CDN cards -->
+      <div class="chai-flex chai-gap-6" style="flex-wrap:wrap;">
+
+        <!-- Minified (recommended) -->
+        <div class="demo-card glass chai-p-6 chai-rounded-2xl" style="flex:1;min-width:280px;">
+          <div class="chai-flex chai-justify-between chai-items-center chai-mb-3">
+            <p class="chai-font-semibold" style="color:#ff8533;">Minified <span style="color:#64748b;font-weight:400;font-size:0.8rem;">— recommended</span></p>
+            <span style="font-size:0.7rem;background:rgba(34,197,94,0.15);color:#22c55e;padding:2px 8px;border-radius:99px;font-weight:600;">6.7 KB</span>
+          </div>
+          <div style="position:relative;">
+            <pre id="cdn-min" style="background:#0a0a0e;border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:14px 16px;font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:#a3e635;overflow-x:auto;white-space:pre-wrap;word-break:break-all;line-height:1.7;margin:0;">&lt;script src="https://cdn.jsdelivr.net/gh/srujanee20/chaistrap@v1.0.0/chaistrap.min.js"&gt;&lt;/script&gt;</pre>
+            <button onclick="copySnippet('cdn-min', this)" style="position:absolute;top:8px;right:8px;background:rgba(255,102,0,0.15);color:#ff8533;border:1px solid rgba(255,102,0,0.3);border-radius:6px;padding:3px 10px;font-size:0.72rem;font-family:'Inter',sans-serif;cursor:pointer;font-weight:600;">Copy</button>
+          </div>
+        </div>
+
+        <!-- Full source -->
+        <div class="demo-card glass chai-p-6 chai-rounded-2xl" style="flex:1;min-width:280px;">
+          <div class="chai-flex chai-justify-between chai-items-center chai-mb-3">
+            <p class="chai-font-semibold" style="color:#ff8533;">Full Source <span style="color:#64748b;font-weight:400;font-size:0.8rem;">— readable</span></p>
+            <span style="font-size:0.7rem;background:rgba(99,102,241,0.15);color:#818cf8;padding:2px 8px;border-radius:99px;font-weight:600;">17 KB</span>
+          </div>
+          <div style="position:relative;">
+            <pre id="cdn-full" style="background:#0a0a0e;border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:14px 16px;font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:#a3e635;overflow-x:auto;white-space:pre-wrap;word-break:break-all;line-height:1.7;margin:0;">&lt;script src="https://cdn.jsdelivr.net/gh/srujanee20/chaistrap@v1.0.0/chaistrap.js"&gt;&lt;/script&gt;</pre>
+            <button onclick="copySnippet('cdn-full', this)" style="position:absolute;top:8px;right:8px;background:rgba(255,102,0,0.15);color:#ff8533;border:1px solid rgba(255,102,0,0.3);border-radius:6px;padding:3px 10px;font-size:0.72rem;font-family:'Inter',sans-serif;cursor:pointer;font-weight:600;">Copy</button>
+          </div>
+        </div>
+
+      </div>
+
+      <p class="chai-text-center chai-mt-6" style="color:#475569;font-size:0.82rem;">
+        Place the script tag at the bottom of your <code>&lt;body&gt;</code>. Then use <code>chai-*</code> classes anywhere in your markup.
+      </p>
+
+    </div>
+  </section>
+
   <!-- ════════════════════════════════════════════ LIVE DEMO ═══ -->
   <section id="demo" class="chai-p-10" style="position:relative;z-index:1;">
     <div style="max-width:900px;margin:0 auto;">
@@ -387,6 +430,23 @@
 
     btn.addEventListener('click', runInspector);
     input.addEventListener('keydown', e => { if (e.key === 'Enter') runInspector(); });
+  </script>
+
+  <!-- Copy-to-clipboard for CDN snippets -->
+  <script>
+    function copySnippet(id, btn) {
+      const text = document.getElementById(id).textContent;
+      navigator.clipboard.writeText(text).then(() => {
+        btn.textContent = 'Copied!';
+        btn.style.color = '#22c55e';
+        btn.style.borderColor = 'rgba(34,197,94,0.4)';
+        setTimeout(() => {
+          btn.textContent = 'Copy';
+          btn.style.color = '#ff8533';
+          btn.style.borderColor = 'rgba(255,102,0,0.3)';
+        }, 2000);
+      });
+    }
   </script>
 
 </body>
